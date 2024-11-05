@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culture - Austria Tourism</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            margin: 2em;
+        }
+        section {
+            margin-bottom: 2em;
+        }
+        .quiz-container {
+            background: #e7f3fe;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .quiz-question {
+            font-weight: bold;
+        }
+        .quiz-options label {
+            display: block;
+            margin: 10px 0;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 1em;
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul style="list-style: none; padding: 0; display: flex; justify-content: center; gap: 1.5em;">
+                <li><a href="index.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Home</a></li>
+                <li><a href="landmarks.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Landmarks</a></li>
+                <li><a href="culture.html" style="color: white; text-decoration: none; padding: 0.5em 1em; background:#ffcc00; border-radius: 5px;">Culture</a></li>
+                <li><a href="cuisine.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Cuisine</a></li>
+                <li><a href="outdoor.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Outdoor Activities</a></li>
+                <li><a href="travel-tips.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Travel Tips</a></li>
+                <li><a href="accommodation.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Accommodation</a></li>
+                <li><a href="contact.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Contact</a></li>
+                <li><a href="gallery.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Culture of Austria</h1>
+        <p>Explore the rich cultural heritage of Austria, including its music, art, and traditions.</p>
+        
+        <section>
+            <h2>Music</h2>
+            <p>Austria is renowned for its classical music heritage, home to composers like Mozart, Beethoven, and Strauss. The Vienna Philharmonic Orchestra is one of the most prestigious orchestras in the world.</p>
+            <img src="C:\Users\gag90\TourismAustria\images\Screenshot 2024-11-04 191047.png" alt="Austrian Music" style="max-width:100%; height:auto;">
+            <audio controls>
+                <source src="C:\Users\gag90\TourismAustria\images\krainer-waltz-traditional-austrian-and-slovenian-music-3358.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+        
+        <section>
+            <h2>Art</h2>
+            <p>Austria has a rich tradition in visual arts, with famous painters like Gustav Klimt and Egon Schiele. The Belvedere Palace in Vienna showcases many masterpieces from these artists.</p>
+            <img src="C:\Users\gag90\TourismAustria\images\Screenshot 2024-11-04 191402.png" alt="Austrian Art" style="max-width:100%; height:auto;">
+        </section>
+        
+        <section>
+            <h2>Traditions</h2>
+            <p>From traditional costumes to folk dances, Austria's cultural traditions are vibrant and celebrated. The Vienna Opera Ball is a famous event showcasing Austrian culture and elegance.</p>
+            <img src="C:\Users\gag90\TourismAustria\images\Doc1_page-0001.jpg" alt="Austrian Traditions" style="max-width:100%; height:auto;">
+        </section>
+
+        <section class="quiz-container">
+            <h2>Test Your Knowledge!</h2>
+            <div class="quiz-question">Who is considered the father of classical music?</div>
+            <div class="quiz-options">
+                <label><input type="radio" name="question1" value="Beethoven"> Beethoven</label>
+                <label><input type="radio" name="question1" value="Mozart"> Mozart</label>
+                <label><input type="radio" name="question1" value="Bach"> Bach</label>
+                <label><input type="radio" name="question1" value="Haydn"> Haydn</label>
+            </div>
+            <button onclick="checkAnswer()">Submit Answer</button>
+            <div id="result"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Austria Tourism</p>
+    </footer>
+    
+    <script>
+        function checkAnswer() {
+            const radios = document.getElementsByName('question1');
+            let selectedValue;
+            for (const radio of radios) {
+                if (radio.checked) {
+                    selectedValue = radio.value;
+                    break;
+                }
+            }
+            const result = document.getElementById('result');
+            result.innerHTML = ''; // Clear previous result
+            if (selectedValue === 'Mozart') {
+                const img = document.createElement('img');
+                img.src = "C:\\Users\\gag90\\TourismAustria\\images\\hq720.jpg"; // Use a valid path
+                img.alt = "Mozart";
+                img.style.maxWidth = "100%";
+                img.style.height = "auto";
+                result.appendChild(img);
+                result.appendChild(document.createTextNode(' Correct! Mozart is often referred to as the father of classical music.'));
+            } else {
+                result.textContent = 'Incorrect. The correct answer is Mozart.';
+                const img = document.createElement('img');
+                img.src = "C:\\Users\\gag90\\TourismAustria\\images\\hq720.jpg"; // Use a valid path
+                img.alt = "Mozart";
+                img.style.maxWidth = "100%";
+                img.style.height = "auto";
+                result.appendChild(img);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outdoor Activities - Austria Tourism</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            margin: 2em;
+        }
+        section {
+            margin-bottom: 2em;
+        }
+        footer {
+            text-align: center;
+            padding: 1em;
+            background: #333;
+            color: white;
+        }
+        .activity {
+            margin: 1em 0;
+            display: flex;
+            align-items: center;
+        }
+        .activity img {
+            max-width: 150px;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+        .quiz-container {
+            background: #e7f3fe;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .quiz-question {
+            font-weight: bold;
+        }
+        .quiz-options label {
+            display: block;
+            margin: 10px 0;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul style="list-style: none; padding: 0; display: flex; justify-content: center; gap: 1.5em;">
+                <li><a href="index.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Home</a></li>
+                <li><a href="landmarks.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Landmarks</a></li>
+                <li><a href="culture.html" style="color: white; text-decoration: none; padding: 0.5em 1em;transition: background 0.3s; border-radius: 5px;">Culture</a></li>
+                <li><a href="cuisine.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Cuisine</a></li>
+                <li><a href="outdoor.html" style="color: white; text-decoration: none; padding: 0.5em 1em;  background:#ffcc00; border-radius: 5px;">Outdoor Activities</a></li>
+                <li><a href="travel-tips.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Travel Tips</a></li>
+                <li><a href="accommodation.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Accommodation</a></li>
+                <li><a href="contact.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Contact</a></li>
+                <li><a href="gallery.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Outdoor Activities in Austria</h1>
+        <p>Experience thrilling outdoor adventures in Austria’s stunning landscapes, including skiing, hiking, and more!</p>
+
+        <section>
+            <h2>Popular Activities</h2>
+            
+            <div class="activity">
+                <img src="C:\Users\gag90\TourismAustria\images\skiing.jpg" alt="Skiing in Austria">
+                <div>
+                    <strong>Skiing:</strong> Austria is home to some of the best ski resorts in the world, including St. Anton and Kitzbühel.
+                </div>
+            </div>
+
+            <div class="activity">
+                <img src="C:\Users\gag90\TourismAustria\images\hiking.jpeg" alt="Hiking in Austria">
+                <div>
+                    <strong>Hiking:</strong> Explore the breathtaking trails in the Austrian Alps, suitable for all levels of hikers.
+                </div>
+            </div>
+
+            <div class="activity">
+                <img src="C:\Users\gag90\TourismAustria\images\mountain_biking.jpg" alt="Mountain Biking in Austria">
+                <div>
+                    <strong>Mountain Biking:</strong> Discover scenic biking routes with stunning views of the mountains.
+                </div>
+            </div>
+
+            <div class="activity">
+                <img src="C:\Users\gag90\TourismAustria\images\paragliding.jpg" alt="Paragliding in Austria">
+                <div>
+                    <strong>Paragliding:</strong> Experience the thrill of soaring above the stunning landscapes of Austria.
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz-container">
+            <h2>Test Your Knowledge!</h2>
+            <div class="quiz-question">Which of the following is a popular skiing destination in Austria?</div>
+            <div class="quiz-options">
+                <label><input type="radio" name="question1" value="St. Anton"> St. Anton</label>
+                <label><input type="radio" name="question1" value="Munich"> Munich</label>
+                <label><input type="radio" name="question1" value="Berlin"> Berlin</label>
+                <label><input type="radio" name="question1" value="Zurich"> Zurich</label>
+            </div>
+            <button onclick="checkAnswer()">Submit Answer</button>
+            <div id="result"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Austria Tourism</p>
+    </footer>
+    
+    <script>
+        function checkAnswer() {
+            const radios = document.getElementsByName('question1');
+            let selectedValue;
+            for (const radio of radios) {
+                if (radio.checked) {
+                    selectedValue = radio.value;
+                    break;
+                }
+            }
+            const result = document.getElementById('result');
+            if (selectedValue === 'St. Anton') {
+                result.textContent = 'Correct! St. Anton is one of the most famous ski destinations in Austria.';
+            } else {
+                result.textContent = 'Incorrect. The correct answer is St. Anton.';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation - Austria Tourism</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background: #555;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .accommodation-item {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .accommodation-item h2 {
+            margin: 0;
+        }
+        .booking-form {
+            display: none;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .confirmation {
+            display: none;
+            background: #dff0d8;
+            color: #3c763d;
+            padding: 10px;
+            border: 1px solid #d6e9c6;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body style="
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    color: #333;
+">
+<body>
+    <header>
+        <h1>Austrian Tourism</h1>
+        <nav>
+            <ul style="list-style: none; padding: 0; display: flex; justify-content: center; gap: 1.5em;">
+                <li><a href="index.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Home</a></li>
+                <li><a href="landmarks.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Landmarks</a></li>
+                <li><a href="culture.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Culture</a></li>
+                <li><a href="cuisine.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition:background 0.3s; border-radius: 5px;">Cuisine</a></li>
+                <li><a href="outdoor.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Outdoor Activities</a></li>
+                <li><a href="travel-tips.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Travel Tips</a></li>
+                <li><a href="accommodation.html" style="color: white; text-decoration: none; padding: 0.5em 1em; background:#ffcc00 ; border-radius: 5px;">Accommodation</a></li>
+                <li><a href="contact.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Contact</a></li>
+                <li><a href="gallery.html" style="color: white; text-decoration: none; padding: 0.5em 1em; transition: background 0.3s; border-radius: 5px;">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Accommodation Options in Austria</h1>
+        <p>Find a variety of accommodation options to suit every budget and preference.</p>
+
+        <div class="accommodation-item">
+            <h2>Luxury Hotel</h2>
+            <p>Experience the height of comfort and service in our luxury hotel.</p>
+            <button onclick="showBookingForm('Luxury Hotel')">Book Now</button>
+        </div>
+        
+        <div class="accommodation-item">
+            <h2>Budget Hostel</h2>
+            <p>Affordable stays with a friendly atmosphere for budget travelers.</p>
+            <button onclick="showBookingForm('Budget Hostel')">Book Now</button>
+        </div>
+        
+        <div class="accommodation-item">
+            <h2>Charming B&B</h2>
+            <p>Enjoy a cozy stay with a home-cooked breakfast at our charming B&B.</p>
+            <button onclick="showBookingForm('Charming B&B')">Book Now</button>
+        </div>
+
+        <div class="booking-form" id="bookingForm">
+            <h3>Book Your Stay at <span id="selectedAccommodation"></span></h3>
+            <form id="form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="dates">Check-in and Check-out Dates:</label>
+                <input type="text" id="dates" name="dates" placeholder="e.g. 2024-05-01 to 2024-05-07" required>
+
+                <button type="submit">Confirm Booking</button>
+            </form>
+            <div class="confirmation" id="confirmationMessage">
+                Thank you for your booking! We will get back to you shortly.
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Austria Tourism</p>
+    </footer>
+
+    <script>
+        function showBookingForm(accommodation) {
+            document.getElementById('selectedAccommodation').innerText = accommodation;
+            document.getElementById('bookingForm').style.display = 'block';
+        }
+
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
+            // Show confirmation message
+            document.getElementById('confirmationMessage').style.display = 'block';
+            
+            // Clear the form fields
+            this.reset();
+        });
+    </script>
+</body>
+</html>
